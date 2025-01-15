@@ -1,6 +1,6 @@
 
-# # test_pdb.py
-# # Импортируйте модуль pdb.
+# # # test_pdb.py
+# # # Импортируйте модуль pdb.
 # import pdb
 
 # def integers_counter(data):
@@ -24,6 +24,7 @@
 #     # Целых чисел должно быть 2.
 #     assert integers == 2
 
+############################################################################################
 
 # test_pdb.py
 def transform_list(x):
@@ -35,5 +36,21 @@ def transform_list(x):
 def test_list():
     a = []
     a = transform_list(a)
-    a = [4] + a
+    # a = [4] + a
+    a = a + [4]
     assert a == [1, 2, 3, 4]
+
+############################################################################################
+
+import pytest  # Для использования маркеров нужно импортировать модуль pytest.
+
+
+@pytest.mark.skip  # Тест с этим маркером будет пропущен.
+def test_will_be_skipped():
+    assert True
+
+
+def test_will_be_launched():
+    assert False
+
+############################################################################################
