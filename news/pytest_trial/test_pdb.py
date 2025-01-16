@@ -26,31 +26,45 @@
 
 ############################################################################################
 
-# test_pdb.py
-def transform_list(x):
-    x.append(1)
-    x.extend([2, 3])
-    return x
+# # test_pdb.py
+# def transform_list(x):
+#     x.append(1)
+#     x.extend([2, 3])
+#     return x
 
 
-def test_list():
-    a = []
-    a = transform_list(a)
-    # a = [4] + a
-    a = a + [4]
-    assert a == [1, 2, 3, 4]
+# def test_list():
+#     a = []
+#     a = transform_list(a)
+#     # a = [4] + a
+#     a = a + [4]
+#     assert a == [1, 2, 3, 4]
 
 ############################################################################################
 
-import pytest  # Для использования маркеров нужно импортировать модуль pytest.
+# import pytest  # Для использования маркеров нужно импортировать модуль pytest.
 
 
-@pytest.mark.skip  # Тест с этим маркером будет пропущен.
+# @pytest.mark.skip  # Тест с этим маркером будет пропущен.
+# def test_will_be_skipped():
+#     assert True
+
+
+# def test_will_be_launched():
+#     assert False
+
+############################################################################################
+
+import pytest
+
+pytestmark = pytest.mark.skip ('Тестовый пропуск тестов')  # Все тесты в этом файле будут пропущены.
+
+
 def test_will_be_skipped():
     assert True
 
 
-def test_will_be_launched():
-    assert False
+def test_also_will_be_skipped():
+    assert True
 
 ############################################################################################
